@@ -1,0 +1,30 @@
+From 9a825d95f17be3d9caab7342eab3b7b831970b0e Mon Sep 17 00:00:00 2001
+From: greymoth <m.hirakawa07@icloud.com>
+Date: Sat, 27 Jun 2026 01:26:40 +0900
+Subject: [PATCH] docs: fix `BindXML` comment referencing nonexistent
+ `binding.BindXML`
+
+The doc comment on line 790 read:
+  "BindXML is a shortcut for c.MustBindWith(obj, binding.BindXML)."
+
+`binding.BindXML` does not exist. The correct symbol is `binding.XML`
+(defined in binding/binding.go), which is also what the implementation
+uses. All sibling methods (BindJSON, BindYAML, BindTOML, etc.) already
+reference the correct symbol in their comments.
+---
+ context.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/context.go b/context.go
+index 893edb2848..1dc730e323 100644
+--- a/context.go
++++ b/context.go
+@@ -787,7 +787,7 @@ func (c *Context) BindJSON(obj any) error {
+ 	return c.MustBindWith(obj, binding.JSON)
+ }
+ 
+-// BindXML is a shortcut for c.MustBindWith(obj, binding.BindXML).
++// BindXML is a shortcut for c.MustBindWith(obj, binding.XML).
+ func (c *Context) BindXML(obj any) error {
+ 	return c.MustBindWith(obj, binding.XML)
+ }

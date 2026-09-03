@@ -1,0 +1,23 @@
+From c392ca6b4dd6f2f4553a58f6389bc813846bf21e Mon Sep 17 00:00:00 2001
+From: Yusuke Wada <yusuke@kamawada.com>
+Date: Tue, 23 Jun 2026 11:21:44 +0900
+Subject: [PATCH] fix(jsx): cast awaitedFallback through unknown to fix Deno
+ type check
+
+---
+ src/jsx/components.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/jsx/components.ts b/src/jsx/components.ts
+index 65a3053de6..b9d29048f5 100644
+--- a/src/jsx/components.ts
++++ b/src/jsx/components.ts
+@@ -86,7 +86,7 @@ export const ErrorBoundary: FC<
+           return raw(
+             fallbackResult,
+             (fallbackResult as HtmlEscapedString).callbacks ||
+-              (awaitedFallback as HtmlEscapedString)?.callbacks
++              (awaitedFallback as unknown as HtmlEscapedString)?.callbacks
+           )
+         }
+       }

@@ -1,0 +1,13 @@
+--- a/main.ts
++++ b/main.ts
+@@ -1,5 +1,5 @@
+-const cache: Record<string, number> = {};
+-cache["foo"] = 1;
+-if (cache["foo"] !== undefined) {
+-  // hit
+-}
++const cache = new Map<string, number>();
++cache.set("foo", 1);
++if (cache.has("foo")) {
++  // hit
++}

@@ -1,0 +1,6 @@
+{
+  "verdict": "ESCALATE",
+  "layer": "LLM",
+  "difficulty": "contextual",
+  "source": "hand-curated"
+}

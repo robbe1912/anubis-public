@@ -1,0 +1,26 @@
+From c69d5a4b80e6472f55e5efbac0702704acda34fd Mon Sep 17 00:00:00 2001
+From: tsinglua <tsinglua@outlook.com>
+Date: Wed, 11 Mar 2026 16:37:08 +0800
+Subject: [PATCH] refactor: use the built-in max/min to simplify the code
+
+Signed-off-by: tsinglua <tsinglua@outlook.com>
+---
+ test_helpers.go | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/test_helpers.go b/test_helpers.go
+index 20d200320b..146be8f37b 100644
+--- a/test_helpers.go
++++ b/test_helpers.go
+@@ -49,10 +49,7 @@ func waitForServerReady(url string, maxAttempts int) error {
+ 		}
+ 
+ 		// Exponential backoff: 10ms, 20ms, 40ms, 80ms, 160ms...
+-		backoff := time.Duration(10*(1<<uint(i))) * time.Millisecond
+-		if backoff > 500*time.Millisecond {
+-			backoff = 500 * time.Millisecond
+-		}
++		backoff := min(time.Duration(10*(1<<uint(i)))*time.Millisecond, 500*time.Millisecond)
+ 		time.Sleep(backoff)
+ 	}
+ 

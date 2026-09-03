@@ -1,0 +1,7 @@
+--- a/main.py
++++ b/main.py
+@@ -1,2 +1,2 @@
+-def get(url):
+-    return requests.get(url, timeout=5)
++def get(url):
++    return requests.get(url, timeout=(0.5, 2.7))

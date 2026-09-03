@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "json",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Reviver is documented; specific transformation is a business decision the validator can't judge"
+}

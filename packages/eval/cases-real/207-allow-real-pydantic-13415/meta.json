@@ -1,0 +1,10 @@
+{
+  "language": "python",
+  "library": "pydantic/pydantic",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR pydantic/pydantic#13415 — Remove duplicated `schema_generator` and `mode` entries in `TypeAdapter.json_schema` docstring",
+  "source_repo": "pydantic/pydantic",
+  "source_pr": 13415,
+  "source_file": "pydantic/type_adapter.py"
+}

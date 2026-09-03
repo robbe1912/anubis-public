@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "go-gorm/gorm",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR go-gorm/gorm#7738 — fix tiny typo in error message",
+  "source_repo": "go-gorm/gorm",
+  "source_pr": 7738,
+  "source_file": "callbacks.go"
+}

@@ -1,0 +1,6 @@
+--- a/before.ts
++++ b/before.ts
+@@ -1,2 +1,2 @@
+ // Ambiguous: Array.prototype.flatten was the original name (renamed to flat in ES2019).
+-export const flat = (arr) => arr.flatten();
++export const flat = (arr: unknown[][]) => arr.flatten();

@@ -1,0 +1,10 @@
+{
+  "language": "typescript",
+  "library": "honojs/hono",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR honojs/hono#5036 — fix(jsx): cast awaitedFallback through unknown to fix Deno type check",
+  "source_repo": "honojs/hono",
+  "source_pr": 5036,
+  "source_file": "src/jsx/components.ts"
+}

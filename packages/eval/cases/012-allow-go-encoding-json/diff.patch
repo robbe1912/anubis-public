@@ -1,0 +1,15 @@
+--- a/main.go
++++ b/main.go
+@@ -1,4 +1,8 @@
+-package main
+-type User struct {
+-  Name string
+-}
++package main
++import "encoding/json"
++type User struct {
++  Name string `json:"name"`
++}
++func encode(u User) ([]byte, error) {
++  return json.Marshal(u)
++}

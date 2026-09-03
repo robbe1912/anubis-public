@@ -1,0 +1,25 @@
+From dca1d08b7c25fc9a493397af7358ce7b37eeb03e Mon Sep 17 00:00:00 2001
+From: styee <19558839+styee@users.noreply.github.com>
+Date: Wed, 5 Mar 2025 14:57:02 -0800
+Subject: [PATCH] Update command.go
+
+Fix spelling in the help output.
+
+topcis -> topics
+---
+ command.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/command.go b/command.go
+index 140fbfdff..4794e5ebe 100644
+--- a/command.go
++++ b/command.go
+@@ -2025,7 +2025,7 @@ func defaultUsageFunc(w io.Writer, in interface{}) error {
+ 		fmt.Fprint(w, trimRightSpace(c.InheritedFlags().FlagUsages()))
+ 	}
+ 	if c.HasHelpSubCommands() {
+-		fmt.Fprintf(w, "\n\nAdditional help topcis:")
++		fmt.Fprintf(w, "\n\nAdditional help topics:")
+ 		for _, subcmd := range c.Commands() {
+ 			if subcmd.IsAdditionalHelpTopicCommand() {
+ 				fmt.Fprintf(w, "\n  %s %s", rpad(subcmd.CommandPath(), subcmd.CommandPathPadding()), subcmd.Short)

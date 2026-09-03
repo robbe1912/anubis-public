@@ -1,0 +1,7 @@
+{
+  "language": "python",
+  "library": "dataclasses",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "dataclass decorator"
+}

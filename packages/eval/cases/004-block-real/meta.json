@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "WHATWG fetch",
+  "agent_model": "glm-5.2",
+  "created_at": "2026-07-11",
+  "notes": "Phase 1 seed: realistic agent hallucination pattern (sync variant of async method)."
+}

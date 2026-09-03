@@ -1,0 +1,8 @@
+{
+  "verdict": "BLOCK",
+  "layer": "LLM",
+  "hallucination_type": "phantom-symbol",
+  "difficulty": "contextual",
+  "source": "synthetic",
+  "notes": "useArrayState does not exist in React. With Context7 returning real React docs (post library-resolution fix), LLM correctly cites and BLOCKs."
+}

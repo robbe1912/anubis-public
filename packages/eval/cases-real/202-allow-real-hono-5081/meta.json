@@ -1,0 +1,10 @@
+{
+  "language": "typescript",
+  "library": "honojs/hono",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR honojs/hono#5081 — docs(language): add JSDoc @example to languageDetector",
+  "source_repo": "honojs/hono",
+  "source_pr": 5081,
+  "source_file": "src/middleware/language/language.ts"
+}

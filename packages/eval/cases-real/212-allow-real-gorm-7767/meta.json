@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "go-gorm/gorm",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR go-gorm/gorm#7767 — fix(migrator): add nil guards to ColumnType methods to prevent panic",
+  "source_repo": "go-gorm/gorm",
+  "source_pr": 7767,
+  "source_file": "migrator/column_type.go"
+}

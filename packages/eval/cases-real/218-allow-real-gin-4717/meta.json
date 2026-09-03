@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "gin-gonic/gin",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR gin-gonic/gin#4717 — docs: fix `BindXML` comment referencing nonexistent `binding.BindXML`",
+  "source_repo": "gin-gonic/gin",
+  "source_pr": 4717,
+  "source_file": "context.go"
+}

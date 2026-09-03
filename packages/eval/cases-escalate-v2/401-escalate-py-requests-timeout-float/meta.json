@@ -1,0 +1,7 @@
+{
+  "language": "python",
+  "library": "requests",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Docs allow tuple form but don't specify connect/read split semantics — model can't verify 0.5/2.7 mapping without external knowledge"
+}

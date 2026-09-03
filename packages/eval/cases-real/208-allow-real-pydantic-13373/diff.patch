@@ -1,0 +1,22 @@
+From a7b47bacb99ad05c05559fea5212c2e81547a02c Mon Sep 17 00:00:00 2001
+From: Kropiunig <48442031+Kropiunig@users.noreply.github.com>
+Date: Tue, 30 Jun 2026 15:32:09 +0200
+Subject: [PATCH] docs: remove stale field_name param from apply_validators
+ docstring
+
+---
+ pydantic/_internal/_generate_schema.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/pydantic/_internal/_generate_schema.py b/pydantic/_internal/_generate_schema.py
+index f20030b4ba..003920f8f9 100644
+--- a/pydantic/_internal/_generate_schema.py
++++ b/pydantic/_internal/_generate_schema.py
+@@ -2551,7 +2551,6 @@ def apply_validators(
+     Args:
+         schema: The schema to apply validators on.
+         validators: An iterable of validators.
+-        field_name: The name of the field if validators are being applied to a model field.
+ 
+     Returns:
+         The updated schema.

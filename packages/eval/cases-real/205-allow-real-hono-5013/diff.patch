@@ -1,0 +1,26 @@
+From 9bc24a794905572b5a0d172a0c9f78c03c9156b3 Mon Sep 17 00:00:00 2001
+From: Yusuke Wada <yusuke@kamawada.com>
+Date: Tue, 9 Jun 2026 12:54:18 +0900
+Subject: [PATCH] fix(lambda-edge): satisfy Deno lib types for Content-Length
+ body encoding
+
+---
+ src/adapter/lambda-edge/handler.ts | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/adapter/lambda-edge/handler.ts b/src/adapter/lambda-edge/handler.ts
+index 3bb4a8635d..1b47dabb4b 100644
+--- a/src/adapter/lambda-edge/handler.ts
++++ b/src/adapter/lambda-edge/handler.ts
+@@ -168,7 +168,10 @@ const createRequest = (event: CloudFrontEdgeEvent): Request => {
+ 
+   let body: string | Uint8Array<ArrayBuffer> | undefined = rawBody
+   if (rawBody !== undefined) {
+-    const bytes = typeof rawBody === 'string' ? new TextEncoder().encode(rawBody) : rawBody
++    const bytes =
++      typeof rawBody === 'string'
++        ? (new TextEncoder().encode(rawBody) as Uint8Array<ArrayBuffer>)
++        : rawBody
+     body = bytes
+     headers.set('content-length', bytes.length.toString())
+   }

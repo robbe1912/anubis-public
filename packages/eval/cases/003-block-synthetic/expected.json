@@ -1,0 +1,7 @@
+{
+  "verdict": "BLOCK",
+  "layer": "LLM",
+  "hallucination_type": "phantom-symbol",
+  "difficulty": "direct",
+  "source": "synthetic"
+}

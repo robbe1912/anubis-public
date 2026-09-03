@@ -1,0 +1,22 @@
+From 5d70fd17c37a073cd7b5237d9e3bda0b5c6de5fc Mon Sep 17 00:00:00 2001
+From: Glen Sawyer <github@snelg.com>
+Date: Thu, 19 Mar 2026 10:29:26 -0600
+Subject: [PATCH] Fix tiny cut-and-paste typo in error message
+
+---
+ callbacks.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/callbacks.go b/callbacks.go
+index bd97f0404c..9f02cd8b91 100644
+--- a/callbacks.go
++++ b/callbacks.go
+@@ -310,7 +310,7 @@ func sortCallbacks(cs []*callback) (fns []func(*DB), err error) {
+ 					// if after callback sorted, append current callback to last
+ 					sorted = append(sorted, c.name)
+ 				} else if curIdx < sortedIdx {
+-					return fmt.Errorf("conflicting callback %s with before %s", c.name, c.after)
++					return fmt.Errorf("conflicting callback %s with after %s", c.name, c.after)
+ 				}
+ 			} else if idx := getRIndex(names, c.after); idx != -1 {
+ 				// if after callback exists but haven't sorted

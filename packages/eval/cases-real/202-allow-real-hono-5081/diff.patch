@@ -1,0 +1,38 @@
+From de72640e7621f3d6a75ef66fc88f16029804dab7 Mon Sep 17 00:00:00 2001
+From: codebybilal18 <aslammbilal61@gmail.com>
+Date: Fri, 3 Jul 2026 23:28:09 +0500
+Subject: [PATCH] docs(language): add JSDoc @example to languageDetector
+
+---
+ src/middleware/language/language.ts | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+diff --git a/src/middleware/language/language.ts b/src/middleware/language/language.ts
+index 15ebd50d1f..5b7a7e0c29 100644
+--- a/src/middleware/language/language.ts
++++ b/src/middleware/language/language.ts
+@@ -261,6 +261,24 @@ const detectLanguage = (c: Context, options: DetectorOptions): string => {
+  * Language detector middleware factory
+  * @param userOptions Configuration options for the language detector
+  * @returns Hono middleware function
++ *
++ * @example
++ * ```ts
++ * type Variables = LanguageVariables
++ * const app = new Hono<{ Variables: Variables }>()
++ *
++ * app.use(
++ *   languageDetector({
++ *     supportedLanguages: ['en', 'ja'], // Must include fallback
++ *     fallbackLanguage: 'en', // Required
++ *   })
++ * )
++ *
++ * app.get('/', (c) => {
++ *   const lang = c.get('language')
++ *   return c.text(`Current language: ${lang}`)
++ * })
++ * ```
+  */
+ export const languageDetector = (userOptions: Partial<DetectorOptions>): MiddlewareHandler => {
+   const options: DetectorOptions = {

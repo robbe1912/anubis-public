@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "go-gorm/gorm",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR go-gorm/gorm#7799 — Document NowFunc timezone behavior",
+  "source_repo": "go-gorm/gorm",
+  "source_pr": 7799,
+  "source_file": "gorm.go"
+}

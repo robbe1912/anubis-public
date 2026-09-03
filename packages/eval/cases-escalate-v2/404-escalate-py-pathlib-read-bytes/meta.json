@@ -1,0 +1,7 @@
+{
+  "language": "python",
+  "library": "pathlib",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Both methods exist; switching from text to bytes changes return type semantics. Docs don't say which to prefer"
+}

@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "gin-gonic/gin",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR gin-gonic/gin#4576 — refactor(test): use the built-in max/min to simplify the code",
+  "source_repo": "gin-gonic/gin",
+  "source_pr": 4576,
+  "source_file": "test_helpers.go"
+}

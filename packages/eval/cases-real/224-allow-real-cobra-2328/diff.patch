@@ -1,0 +1,72 @@
+From 0887cacfd4da68971335cd744bf869c59925f889 Mon Sep 17 00:00:00 2001
+From: "hiroto.toyoda" <hiroto.toyoda@dena.com>
+Date: Sat, 15 Nov 2025 22:33:06 +0900
+Subject: [PATCH 1/2] Change to constant
+
+---
+ command.go | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/command.go b/command.go
+index 78088db69..92e7f8c93 100644
+--- a/command.go
++++ b/command.go
+@@ -567,7 +567,7 @@ func (c *Command) UsagePadding() int {
+ 	return c.parent.commandsMaxUseLen
+ }
+ 
+-var minCommandPathPadding = 11
++const minCommandPathPadding = 11
+ 
+ // CommandPathPadding return padding for the command path.
+ func (c *Command) CommandPathPadding() int {
+@@ -577,7 +577,7 @@ func (c *Command) CommandPathPadding() int {
+ 	return c.parent.commandsMaxCommandPathLen
+ }
+ 
+-var minNamePadding = 11
++const minNamePadding = 11
+ 
+ // NamePadding returns padding for the name.
+ func (c *Command) NamePadding() int {
+@@ -1939,7 +1939,7 @@ type tmplFunc struct {
+ 	fn   func(io.Writer, interface{}) error
+ }
+ 
+-var defaultUsageTemplate = `Usage:{{if .Runnable}}
++const defaultUsageTemplate = `Usage:{{if .Runnable}}
+   {{.UseLine}}{{end}}{{if .HasAvailableSubCommands}}
+   {{.CommandPath}} [command]{{end}}{{if gt (len .Aliases) 0}}
+ 
+
+From 2f1d6a5274b3939b07b6c1caf365bf599c5699ff Mon Sep 17 00:00:00 2001
+From: "hiroto.toyoda" <hiroto.toyoda@dena.com>
+Date: Sat, 15 Nov 2025 23:11:06 +0900
+Subject: [PATCH 2/2] Add missing const
+
+---
+ command.go | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/command.go b/command.go
+index 92e7f8c93..7dfee35ef 100644
+--- a/command.go
++++ b/command.go
+@@ -2039,7 +2039,7 @@ func defaultUsageFunc(w io.Writer, in interface{}) error {
+ 	return nil
+ }
+ 
+-var defaultHelpTemplate = `{{with (or .Long .Short)}}{{. | trimTrailingWhitespaces}}
++const defaultHelpTemplate = `{{with (or .Long .Short)}}{{. | trimTrailingWhitespaces}}
+ 
+ {{end}}{{if or .Runnable .HasSubCommands}}{{.UsageString}}{{end}}`
+ 
+@@ -2061,7 +2061,7 @@ func defaultHelpFunc(w io.Writer, in interface{}) error {
+ 	return nil
+ }
+ 
+-var defaultVersionTemplate = `{{with .DisplayName}}{{printf "%s " .}}{{end}}{{printf "version %s" .Version}}
++const defaultVersionTemplate = `{{with .DisplayName}}{{printf "%s " .}}{{end}}{{printf "version %s" .Version}}
+ `
+ 
+ // defaultVersionFunc is equivalent to executing defaultVersionTemplate. The two should be changed in sync.

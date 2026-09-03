@@ -1,0 +1,7 @@
+--- a/main.py
++++ b/main.py
+@@ -1,2 +1,2 @@
+-def load(p):
+-    return Path(p).read_text()
++def load(p):
++    return Path(p).read_bytes()

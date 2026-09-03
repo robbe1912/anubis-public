@@ -1,0 +1,7 @@
+{
+  "language": "go",
+  "library": "fmt",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "fmt.Printf with format verb"
+}

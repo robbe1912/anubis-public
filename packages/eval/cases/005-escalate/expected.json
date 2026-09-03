@@ -1,0 +1,8 @@
+{
+  "verdict": "BLOCK",
+  "layer": "LLM",
+  "hallucination_type": "phantom-symbol",
+  "difficulty": "contextual",
+  "source": "synthetic",
+  "notes": "Array.prototype.flatten was removed; flat is the correct API. Originally expected ESCALATE (borderline) but model + docs correctly catch this as hallucination — BLOCK is the correct verdict under require_citations=true."
+}

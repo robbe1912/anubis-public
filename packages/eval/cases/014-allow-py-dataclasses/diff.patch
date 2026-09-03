@@ -1,0 +1,13 @@
+--- a/main.py
++++ b/main.py
+@@ -1,4 +1,6 @@
+-class User:
+-    def __init__(self, name, age):
+-        self.name = name
+-        self.age = age
++from dataclasses import dataclass
++
++@dataclass
++class User:
++    name: str
++    age: int

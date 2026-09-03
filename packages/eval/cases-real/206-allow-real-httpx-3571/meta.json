@@ -1,0 +1,10 @@
+{
+  "language": "python",
+  "library": "encode/httpx",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR encode/httpx#3571 — Display proxy protocol scheme on error",
+  "source_repo": "encode/httpx",
+  "source_pr": 3571,
+  "source_file": "httpx/_transports/default.py"
+}

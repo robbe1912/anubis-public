@@ -1,0 +1,7 @@
+{
+  "verdict": "BLOCK",
+  "layer": "LLM",
+  "hallucination_type": "invented-method",
+  "difficulty": "direct",
+  "source": "session-log"
+}

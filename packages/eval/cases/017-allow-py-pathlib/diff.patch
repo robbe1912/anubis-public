@@ -1,0 +1,12 @@
+--- a/main.py
++++ b/main.py
+@@ -1,5 +1,4 @@
+-import os
+-path = os.path.join("a", "b", "c.txt")
+-if os.path.exists(path):
+-    with open(path) as f:
+-        text = f.read()
++from pathlib import Path
++path = Path("a") / "b" / "c.txt"
++if path.exists():
++    text = path.read_text()

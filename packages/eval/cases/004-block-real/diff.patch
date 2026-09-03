@@ -1,0 +1,6 @@
+--- a/before.ts
++++ b/before.ts
+@@ -1,2 +1,2 @@
+ const r = await fetch("/api");
+-const j = await r.json();
++const j = r.jsonSync();

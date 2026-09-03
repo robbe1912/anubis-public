@@ -1,0 +1,22 @@
+From 0a59262298c332c88310bd3e611b320d295b8706 Mon Sep 17 00:00:00 2001
+From: Samaresh Kumar Singh <ssam3003@gmail.com>
+Date: Wed, 12 Nov 2025 15:24:05 -0600
+Subject: [PATCH] refactor: change minUsagePadding from var to const
+
+---
+ command.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/command.go b/command.go
+index 7dfee35ef..c05fed45a 100644
+--- a/command.go
++++ b/command.go
+@@ -557,7 +557,7 @@ func (c *Command) FlagErrorFunc() (f func(*Command, error) error) {
+ 	}
+ }
+ 
+-var minUsagePadding = 25
++const minUsagePadding = 25
+ 
+ // UsagePadding return padding for the usage.
+ func (c *Command) UsagePadding() int {

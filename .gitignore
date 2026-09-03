@@ -1,0 +1,44 @@
+node_modules/
+dist/
+*.tsbuildinfo
+bun.lockb
+bun.lock
+.spike.log
+.groundwire/
+.codegraph/
+.omo/run-continuation/
+
+packages/core/bin/
+
+dist-dev/
+packages/proxy/dist-dev/
+packages/proxy/build/
+dev.err
+dev.log
+*.tmp
+tmp/
+
+# Cargo mutants output (copies entire source tree per run)
+mutants.out*/
+*.old/
+
+# Local daemon runtime artifacts
+.anubis/
+
+# Python scratch (mutation engine test artifacts)
+__pycache__/
+*.pyc
+
+# Local research scratch (large file dumps from ulw-research sessions)
+.omo/ulw-research/
+
+# Local agent scratch (librarian research clones, agent temp dirs)
+.temp/
+
+# Local-only plan artifacts (solo project — code on git, plans stay local)
+.omo/plans/
+
+target/
+**/target/
+Cargo.lock
+*.pdb

@@ -1,0 +1,10 @@
+{
+  "language": "python",
+  "library": "pallets/flask",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR pallets/flask#5808 — fix annotation for select_jinja_autoescape",
+  "source_repo": "pallets/flask",
+  "source_pr": 5808,
+  "source_file": "src/flask/sansio/app.py"
+}

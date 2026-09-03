@@ -1,0 +1,462 @@
+{
+  "serde": {
+    "NthElement": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "IgnoredAny": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "RangeVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "RangeFromVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "RangeToVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Error": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Unexpected": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Expected": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Deserialize": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "DeserializeOwned": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "DeserializeSeed": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Deserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Visitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SeqAccess": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "MapAccess": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "EnumAccess": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "VariantAccess": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "IntoDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "UnitDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "NeverDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "U32Deserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "StrDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "BorrowedStrDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "StringDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "CowStrDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "BytesDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "BorrowedBytesDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SeqDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SeqAccessDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "MapDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "MapAccessDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "EnumAccessDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "UnitOnly": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "MapAsEnum": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Pair": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "First": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Second": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Content": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "InPlaceSeed": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "MessageType": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Impossible": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Serialize": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Serializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeSeq": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeTuple": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeTupleStruct": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeTupleVariant": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeMap": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeStruct": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeStructVariant": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "ContentVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TagOrContent": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TaggedContentVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TagOrContentField": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TagOrContentFieldVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TagContentOtherField": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "TagContentOtherFieldVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "ContentDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "EnumDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "VariantDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "ContentRefDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "InternallyTaggedUnitVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "UntaggedUnitVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "IdentifierDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Borrowed": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapDeserializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "AdjacentlyTaggedEnumVariantSeed": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "AdjacentlyTaggedEnumVariantVisitor": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeTupleVariantAsMapValue": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "SerializeStructVariantAsMapValue": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "ContentSerializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapSerializer": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapSerializeMap": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapSerializeStruct": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapSerializeTupleVariantAsMapValue": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "FlatMapSerializeStructVariantAsMapValue": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "AdjacentlyTaggedEnumVariant": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "CannotSerializeVariant": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "Timestamp": {
+      "type": "type",
+      "methods": [
+        "seconds_since_epoch"
+      ],
+      "params": {}
+    },
+    "Duration": {
+      "type": "type",
+      "methods": [
+        "seconds"
+      ],
+      "params": {}
+    },
+    "Path": {
+      "type": "type",
+      "methods": [
+        "to_str"
+      ],
+      "params": {}
+    },
+    "DateTime": {
+      "type": "type",
+      "methods": [
+        "naive_local",
+        "offset"
+      ],
+      "params": {}
+    },
+    "new": {
+      "type": "function",
+      "methods": [],
+      "params": []
+    },
+    "end": {
+      "type": "function",
+      "methods": [],
+      "params": []
+    },
+    "as_str": {
+      "type": "function",
+      "methods": [],
+      "params": []
+    },
+    "from_utf8_lossy": {
+      "type": "function",
+      "methods": [],
+      "params": []
+    }
+  },
+  "clap": {
+    "Value": {
+      "type": "type",
+      "methods": [
+        "from_matches"
+      ],
+      "params": {}
+    },
+    "ReadmeDoctests": {
+      "type": "type",
+      "methods": [],
+      "params": {}
+    },
+    "from_matches": {
+      "type": "function",
+      "methods": [],
+      "params": []
+    }
+  }
+}

@@ -1,0 +1,32 @@
+From 2f01f08ed9fc4f056b3cf196413e5d25b3689ac7 Mon Sep 17 00:00:00 2001
+From: Charlie <ragonecharlie@gmail.com>
+Date: Mon, 6 Apr 2026 20:09:19 -0400
+Subject: [PATCH] correct typo and rename fileType to fieldType in AlterColumn
+
+---
+ migrator/migrator.go | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/migrator/migrator.go b/migrator/migrator.go
+index 2538b2aa6..9729e574e 100644
+--- a/migrator/migrator.go
++++ b/migrator/migrator.go
+@@ -408,15 +408,15 @@ func (m Migrator) DropColumn(value interface{}, name string) error {
+ 	})
+ }
+ 
+-// AlterColumn alter value's `field` column' type based on schema definition
++// AlterColumn alter value's `field` column's type based on schema definition
+ func (m Migrator) AlterColumn(value interface{}, field string) error {
+ 	return m.RunWithValue(value, func(stmt *gorm.Statement) error {
+ 		if stmt.Schema != nil {
+ 			if field := stmt.Schema.LookUpField(field); field != nil {
+-				fileType := m.FullDataTypeOf(field)
++				fieldType := m.FullDataTypeOf(field)
+ 				return m.DB.Exec(
+ 					"ALTER TABLE ? ALTER COLUMN ? TYPE ?",
+-					m.CurrentTable(stmt), clause.Column{Name: field.DBName}, fileType,
++					m.CurrentTable(stmt), clause.Column{Name: field.DBName}, fieldType,
+ 				).Error
+ 
+ 			}

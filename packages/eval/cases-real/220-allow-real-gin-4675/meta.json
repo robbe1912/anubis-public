@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "gin-gonic/gin",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR gin-gonic/gin#4675 — docs(context): align inline comments in GetPostForm example",
+  "source_repo": "gin-gonic/gin",
+  "source_pr": 4675,
+  "source_file": "context.go"
+}

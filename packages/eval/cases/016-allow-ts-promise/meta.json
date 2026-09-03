@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "promise",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Promise wrapping setTimeout"
+}

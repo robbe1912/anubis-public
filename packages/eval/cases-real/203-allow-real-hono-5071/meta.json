@@ -1,0 +1,10 @@
+{
+  "language": "typescript",
+  "library": "honojs/hono",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR honojs/hono#5071 — fix: avoid circular dependency between body.ts and request.ts",
+  "source_repo": "honojs/hono",
+  "source_pr": 5071,
+  "source_file": "src/utils/body.ts"
+}

@@ -1,0 +1,26 @@
+From bd63d1ec70aa49210c20006544669c9186188d33 Mon Sep 17 00:00:00 2001
+From: Milad <miladev95@gmail.com>
+Date: Tue, 11 Nov 2025 16:58:50 +0330
+Subject: [PATCH] fix: apply De Morgan to avoid negated conjunction in
+ schema/relationship.go (staticcheck QF1001)
+
+---
+ schema/relationship.go | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/schema/relationship.go b/schema/relationship.go
+index 0535bba40b..0b55ee1b2c 100644
+--- a/schema/relationship.go
++++ b/schema/relationship.go
+@@ -669,8 +669,9 @@ func (rel *Relationship) ParseConstraint() *Constraint {
+ 			if r != rel && r.FieldSchema == rel.Schema && len(rel.References) == len(r.References) {
+ 				matched := true
+ 				for idx, ref := range r.References {
+-					if !(rel.References[idx].PrimaryKey == ref.PrimaryKey && rel.References[idx].ForeignKey == ref.ForeignKey &&
+-						rel.References[idx].PrimaryValue == ref.PrimaryValue) {
++					if rel.References[idx].PrimaryKey != ref.PrimaryKey ||
++						rel.References[idx].ForeignKey != ref.ForeignKey ||
++						rel.References[idx].PrimaryValue != ref.PrimaryValue {
+ 						matched = false
+ 						break
+ 					}

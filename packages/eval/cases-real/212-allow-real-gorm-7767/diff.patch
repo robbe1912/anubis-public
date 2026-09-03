@@ -1,0 +1,94 @@
+From 3b4e736569064abbb089377513d534c508707e97 Mon Sep 17 00:00:00 2001
+From: lihan3238 <lihan3238@163.com>
+Date: Wed, 6 May 2026 02:09:43 +0800
+Subject: [PATCH] fix(migrator): add nil guards to ColumnType methods to
+ prevent panic
+
+When a driver populates ColumnType from information_schema but fails to
+attach the *sql.ColumnType, calling DecimalSize(), Length(), Nullable(),
+ScanType(), Name(), or DatabaseTypeName() panics on nil dereference.
+
+Add nil checks before delegating to SQLColumnType in all 6 methods,
+returning zero values when SQLColumnType is nil.
+
+Fixes #7764
+---
+ migrator/column_type.go | 30 ++++++++++++++++++++++++------
+ 1 file changed, 24 insertions(+), 6 deletions(-)
+
+diff --git a/migrator/column_type.go b/migrator/column_type.go
+index c6fdd6b2d4..e1c5e942dc 100644
+--- a/migrator/column_type.go
++++ b/migrator/column_type.go
+@@ -28,7 +28,10 @@ func (ct ColumnType) Name() string {
+ 	if ct.NameValue.Valid {
+ 		return ct.NameValue.String
+ 	}
+-	return ct.SQLColumnType.Name()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.Name()
++	}
++	return ""
+ }
+ 
+ // DatabaseTypeName returns the database system name of the column type. If an empty
+@@ -41,7 +44,10 @@ func (ct ColumnType) DatabaseTypeName() string {
+ 	if ct.DataTypeValue.Valid {
+ 		return ct.DataTypeValue.String
+ 	}
+-	return ct.SQLColumnType.DatabaseTypeName()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.DatabaseTypeName()
++	}
++	return ""
+ }
+ 
+ // ColumnType returns the database type of the column. like `varchar(16)`
+@@ -64,7 +70,10 @@ func (ct ColumnType) Length() (length int64, ok bool) {
+ 	if ct.LengthValue.Valid {
+ 		return ct.LengthValue.Int64, true
+ 	}
+-	return ct.SQLColumnType.Length()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.Length()
++	}
++	return 0, false
+ }
+ 
+ // DecimalSize returns the scale and precision of a decimal type.
+@@ -72,7 +81,10 @@ func (ct ColumnType) DecimalSize() (precision int64, scale int64, ok bool) {
+ 	if ct.DecimalSizeValue.Valid {
+ 		return ct.DecimalSizeValue.Int64, ct.ScaleValue.Int64, true
+ 	}
+-	return ct.SQLColumnType.DecimalSize()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.DecimalSize()
++	}
++	return 0, 0, false
+ }
+ 
+ // Nullable reports whether the column may be null.
+@@ -80,7 +92,10 @@ func (ct ColumnType) Nullable() (nullable bool, ok bool) {
+ 	if ct.NullableValue.Valid {
+ 		return ct.NullableValue.Bool, true
+ 	}
+-	return ct.SQLColumnType.Nullable()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.Nullable()
++	}
++	return false, false
+ }
+ 
+ // Unique reports whether the column may be unique.
+@@ -93,7 +108,10 @@ func (ct ColumnType) ScanType() reflect.Type {
+ 	if ct.ScanTypeValue != nil {
+ 		return ct.ScanTypeValue
+ 	}
+-	return ct.SQLColumnType.ScanType()
++	if ct.SQLColumnType != nil {
++		return ct.SQLColumnType.ScanType()
++	}
++	return nil
+ }
+ 
+ // Comment returns the comment of current column.

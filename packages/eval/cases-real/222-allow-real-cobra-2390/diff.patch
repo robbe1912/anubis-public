@@ -1,0 +1,25 @@
+From b95ce2fa78519e1c8984e6fb2fecae6cdb686a73 Mon Sep 17 00:00:00 2001
+From: Marc Khouzam <marc.khouzam@gmail.com>
+Date: Wed, 15 Apr 2026 14:54:22 -0400
+Subject: [PATCH] Ignore the linter error
+
+The CLI only has access to files the user has access to and the user
+should be able to control where the debug log files go.
+
+Signed-off-by: Marc Khouzam <marc.khouzam@gmail.com>
+---
+ completions.go | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/completions.go b/completions.go
+index d3607c2d2..89d2eeb6b 100644
+--- a/completions.go
++++ b/completions.go
+@@ -955,6 +955,7 @@ func CompDebug(msg string, printToStdErr bool) {
+ 	// Such logs are only printed when the user has set the environment
+ 	// variable BASH_COMP_DEBUG_FILE to the path of some file to be used.
+ 	if path := os.Getenv("BASH_COMP_DEBUG_FILE"); path != "" {
++		//nolint:gosec // G703:BASH_COMP_DEBUG_FILE intentionally user-controlled for completion debug logging.
+ 		f, err := os.OpenFile(path,
+ 			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+ 		if err == nil {

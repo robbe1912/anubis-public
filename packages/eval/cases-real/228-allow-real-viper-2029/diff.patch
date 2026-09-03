@@ -1,0 +1,26 @@
+From b9621ec45830703f78fbd3bcbfdced0daafb0ccc Mon Sep 17 00:00:00 2001
+From: yingshanghuangqiao <yingshanghuangqiao@foxmail.com>
+Date: Fri, 20 Jun 2025 10:58:11 +0800
+Subject: [PATCH] refactor: use the built-in max/min to simplify the code
+
+Signed-off-by: yingshanghuangqiao <yingshanghuangqiao@foxmail.com>
+---
+ util.go | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/util.go b/util.go
+index 2a08074bc..d08ed4621 100644
+--- a/util.go
++++ b/util.go
+@@ -174,10 +174,7 @@ func parseSizeInBytes(sizeStr string) uint {
+ 		}
+ 	}
+ 
+-	size := cast.ToInt(sizeStr)
+-	if size < 0 {
+-		size = 0
+-	}
++	size := max(cast.ToInt(sizeStr), 0)
+ 
+ 	return safeMul(uint(size), multiplier)
+ }

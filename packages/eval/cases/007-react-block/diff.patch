@@ -1,0 +1,11 @@
+--- a/List.tsx
++++ b/List.tsx
+@@ -1,7 +1,7 @@
+ import React, { useState } from "react";
++import React, { useArrayState } from "react";
+ 
+ export function List() {
+-  const [items, setItems] = useState([]);
++  const [items, setItems] = useArrayState([]);
+   return <ul>{items.map(i => <li key={i}>{i}</li>)}</ul>;
+ }

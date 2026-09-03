@@ -1,0 +1,7 @@
+{
+  "language": "go",
+  "library": "encoding/json",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "json.Marshal with struct tag"
+}

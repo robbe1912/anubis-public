@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "map",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Both iteration patterns documented; switching is stylistic and the validator cannot judge from docs"
+}

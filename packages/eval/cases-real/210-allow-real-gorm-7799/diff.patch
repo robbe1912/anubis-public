@@ -1,0 +1,37 @@
+From 69fc02050e6926df2a44a24fbc6d9af516261bd9 Mon Sep 17 00:00:00 2001
+From: morning-verlu <258725120+morning-verlu@users.noreply.github.com>
+Date: Sun, 31 May 2026 18:51:02 +0800
+Subject: [PATCH] Document NowFunc timezone behavior
+
+---
+ gorm.go | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/gorm.go b/gorm.go
+index b71fd7e5f..a0a10adf9 100644
+--- a/gorm.go
++++ b/gorm.go
+@@ -33,7 +33,9 @@ type Config struct {
+ 	FullSaveAssociations bool
+ 	// Logger
+ 	Logger logger.Interface
+-	// NowFunc the function to be used when creating a new timestamp
++	// NowFunc the function to be used when creating a new timestamp.
++	// It defaults to time.Now().Local(), so return values in the desired
++	// location when overriding it for timezone-sensitive applications.
+ 	NowFunc func() time.Time
+ 	// DryRun generate sql without execute
+ 	DryRun bool
+@@ -126,8 +128,10 @@ type Session struct {
+ 	QueryFields              bool
+ 	Context                  context.Context
+ 	Logger                   logger.Interface
+-	NowFunc                  func() time.Time
+-	CreateBatchSize          int
++	// NowFunc overrides the function used when creating a new timestamp
++	// for this session.
++	NowFunc         func() time.Time
++	CreateBatchSize int
+ }
+ 
+ // Open initialize db session based on dialector

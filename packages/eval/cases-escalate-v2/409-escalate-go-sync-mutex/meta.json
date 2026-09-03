@@ -1,0 +1,7 @@
+{
+  "language": "go",
+  "library": "sync",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Mutex is documented; adding concurrency safety to a previously-unsynchronized struct is a design decision docs can't bless or forbid"
+}

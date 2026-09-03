@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "fetch",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Docs describe fetch but say nothing about retry semantics or whether consuming res.json() after a failed res.ok is safe"
+}

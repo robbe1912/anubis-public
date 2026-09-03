@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "go-gorm/gorm",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR go-gorm/gorm#7748 — correct typo and rename fileType to fieldType in AlterColumn",
+  "source_repo": "go-gorm/gorm",
+  "source_pr": 7748,
+  "source_file": "migrator/migrator.go"
+}

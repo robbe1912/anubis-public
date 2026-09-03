@@ -1,0 +1,78 @@
+From ca4d9c22f095da5395feb5e0bd342511e874824d Mon Sep 17 00:00:00 2001
+From: Taku Amano <taku@taaas.jp>
+Date: Thu, 2 Jul 2026 20:40:11 +0900
+Subject: [PATCH 1/2] fix: avoid circular dependency between body.ts and
+ request.ts
+
+---
+ src/utils/body.ts | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/src/utils/body.ts b/src/utils/body.ts
+index 24bcb153db..b1e4174b30 100644
+--- a/src/utils/body.ts
++++ b/src/utils/body.ts
+@@ -3,7 +3,7 @@
+  * Body utility.
+  */
+ 
+-import { HonoRequest } from '../request'
++import type { HonoRequest } from '../request'
+ import { bufferToFormData } from './buffer'
+ 
+ type BodyDataValueDot = { [x: string]: string | File | BodyDataValueDot }
+@@ -74,6 +74,8 @@ export type ParseBodyOptions = {
+   dot: boolean
+ }
+ 
++const isRawRequest = (request: HonoRequest | Request): request is Request => 'headers' in request
++
+ /**
+  * Parses the body of a request based on the provided options.
+  *
+@@ -98,7 +100,7 @@ export const parseBody: ParseBody = async (
+ ) => {
+   const { all = false, dot = false } = options
+ 
+-  const headers = request instanceof HonoRequest ? request.raw.headers : request.headers
++  const headers = isRawRequest(request) ? request.headers : request.raw.headers
+   const contentType = headers.get('Content-Type')
+ 
+   const mediaType = contentType?.split(';')[0].trim().toLowerCase()
+@@ -122,10 +124,10 @@ async function parseFormData<T extends BodyData>(
+   request: HonoRequest | Request,
+   options: ParseBodyOptions
+ ): Promise<T> {
+-  const headers = request instanceof HonoRequest ? request.raw.headers : request.headers
++  const headers = isRawRequest(request) ? request.headers : request.raw.headers
+   const arrayBuffer = await (request as Request).arrayBuffer()
+   const formDataPromise = bufferToFormData(arrayBuffer, headers.get('Content-Type') || '')
+-  if (request instanceof HonoRequest) {
++  if (!isRawRequest(request)) {
+     // Cache so that a later `c.req.formData()` reuses the already-consumed body
+     request.bodyCache.formData = formDataPromise as unknown as FormData
+   }
+
+From 8d01de5c603aa8d3cd65693946a2349d0124193b Mon Sep 17 00:00:00 2001
+From: Taku Amano <taku@taaas.jp>
+Date: Thu, 2 Jul 2026 22:38:59 +0900
+Subject: [PATCH 2/2] docs: add comments to the criteria for condition
+ evaluation
+
+---
+ src/utils/body.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/utils/body.ts b/src/utils/body.ts
+index b1e4174b30..96c801497f 100644
+--- a/src/utils/body.ts
++++ b/src/utils/body.ts
+@@ -74,7 +74,7 @@ export type ParseBodyOptions = {
+   dot: boolean
+ }
+ 
+-const isRawRequest = (request: HonoRequest | Request): request is Request => 'headers' in request
++const isRawRequest = (request: HonoRequest | Request): request is Request => 'headers' in request // 'headers' method exists only on Request, not on HonoRequest.
+ 
+ /**
+  * Parses the body of a request based on the provided options.

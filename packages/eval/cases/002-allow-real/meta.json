@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "node:fs",
+  "agent_model": "human",
+  "created_at": "2026-07-11",
+  "notes": "Phase 1 seed: valid use of standard String.prototype.split."
+}

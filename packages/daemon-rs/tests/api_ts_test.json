@@ -1,0 +1,149 @@
+{
+  "zustand": {
+    "DevtoolsOptions": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "StateStorage": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "PersistStorage": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "PersistOptions": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "StoreApi": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "StoreMutators": {
+      "type": "interface",
+      "methods": [],
+      "params": []
+    },
+    "NamedSet": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "StorageValue": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "UseBoundStore": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "UseBoundStoreWithEqualityFn": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "ExtractState": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "Mutate": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "StateCreator": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "StoreMutatorIdentifier": {
+      "type": "type",
+      "methods": [],
+      "params": []
+    },
+    "redux": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "devtools": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type DevtoolsOptions": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type NamedSet": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "subscribeWithSelector": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "combine": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "persist": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "createJSONStorage": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type StateStorage": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type StorageValue": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type PersistStorage": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "type PersistOptions": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "ssrSafe": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "shallow": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    },
+    "useShallow": {
+      "type": "export",
+      "methods": [],
+      "params": []
+    }
+  }
+}

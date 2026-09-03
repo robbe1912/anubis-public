@@ -1,0 +1,23 @@
+From f7a257fa28e12a3611725b9d0f7f4766a30ad1e6 Mon Sep 17 00:00:00 2001
+From: Emmanuel Ferdman <emmanuelferdman@gmail.com>
+Date: Tue, 13 May 2025 11:24:46 -0700
+Subject: [PATCH] Display proxy protocol scheme on error
+
+Signed-off-by: Emmanuel Ferdman <emmanuelferdman@gmail.com>
+---
+ httpx/_transports/default.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/httpx/_transports/default.py b/httpx/_transports/default.py
+index d5aa05ff23..fc8c70970a 100644
+--- a/httpx/_transports/default.py
++++ b/httpx/_transports/default.py
+@@ -355,7 +355,7 @@ def __init__(
+         else:  # pragma: no cover
+             raise ValueError(
+                 "Proxy protocol must be either 'http', 'https', 'socks5', or 'socks5h',"
+-                " but got {proxy.url.scheme!r}."
++                f" but got {proxy.url.scheme!r}."
+             )
+ 
+     async def __aenter__(self: A) -> A:  # Use generics for subclass support.

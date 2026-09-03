@@ -1,0 +1,10 @@
+{
+  "language": "typescript",
+  "library": "honojs/hono",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR honojs/hono#5013 — fix(lambda-edge): satisfy Deno lib types for Content-Length body encoding",
+  "source_repo": "honojs/hono",
+  "source_pr": 5013,
+  "source_file": "src/adapter/lambda-edge/handler.ts"
+}

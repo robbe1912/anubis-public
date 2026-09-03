@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "spf13/cobra",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR spf13/cobra#2390 — Ignore the linter error",
+  "source_repo": "spf13/cobra",
+  "source_pr": 2390,
+  "source_file": "completions.go"
+}

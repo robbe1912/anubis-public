@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "spf13/viper",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR spf13/viper#2007 — fix: config type check when loading any config",
+  "source_repo": "spf13/viper",
+  "source_pr": 2007,
+  "source_file": "viper.go"
+}

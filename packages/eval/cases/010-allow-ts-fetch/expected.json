@@ -1,0 +1,6 @@
+{
+  "verdict": "ALLOW",
+  "layer": "LLM",
+  "difficulty": "direct",
+  "source": "hand-curated"
+}

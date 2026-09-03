@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "spf13/cobra",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR spf13/cobra#2325 — refactor: change minUsagePadding from var to const",
+  "source_repo": "spf13/cobra",
+  "source_pr": 2325,
+  "source_file": "command.go"
+}

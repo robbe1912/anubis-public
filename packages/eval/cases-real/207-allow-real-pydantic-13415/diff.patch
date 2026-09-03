@@ -1,0 +1,23 @@
+From f107b7f4d67b7ca1e0e6cb91933970a7ad52214c Mon Sep 17 00:00:00 2001
+From: Kropiunig <48442031+Kropiunig@users.noreply.github.com>
+Date: Mon, 6 Jul 2026 15:03:43 +0200
+Subject: [PATCH] docs: remove duplicated schema_generator and mode entries in
+ TypeAdapter.json_schema docstring
+
+---
+ pydantic/type_adapter.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/pydantic/type_adapter.py b/pydantic/type_adapter.py
+index fea117924dd..02e441e3bf9 100644
+--- a/pydantic/type_adapter.py
++++ b/pydantic/type_adapter.py
+@@ -716,8 +716,6 @@ def json_schema(
+             schema_generator: To override the logic used to generate the JSON schema, as a subclass of
+                 `GenerateJsonSchema` with your desired modifications
+             mode: The mode in which to generate the schema.
+-            schema_generator: The generator class used for creating the schema.
+-            mode: The mode to use for schema generation.
+ 
+         Returns:
+             The JSON schema for the model as a dictionary.

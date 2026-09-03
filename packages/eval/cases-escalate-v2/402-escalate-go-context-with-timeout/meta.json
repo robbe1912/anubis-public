@@ -1,0 +1,7 @@
+{
+  "language": "go",
+  "library": "context",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "Docs say caller must call cancel; edit uses defer cancel() — pattern is idiomatic but docs don't explicitly bless defer-cancel"
+}

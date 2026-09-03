@@ -1,0 +1,7 @@
+{
+  "language": "python",
+  "library": "pathlib",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "pathlib Path idioms"
+}

@@ -1,0 +1,50 @@
+From 50ba0afcdbc89fa55d1197c6d5f31d82f43e3379 Mon Sep 17 00:00:00 2001
+From: lxs <liang09255@gmail.com>
+Date: Wed, 14 Jan 2026 10:59:51 +0800
+Subject: [PATCH 1/2] fix: avoid coroutine leaks when ping fail
+
+---
+ gorm.go | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/gorm.go b/gorm.go
+index a209bb09b4..54d4ec4f3a 100644
+--- a/gorm.go
++++ b/gorm.go
+@@ -236,6 +236,9 @@ func Open(dialector Dialector, opts ...Option) (db *DB, err error) {
+ 	if err == nil && !config.DisableAutomaticPing {
+ 		if pinger, ok := db.ConnPool.(interface{ Ping() error }); ok {
+ 			err = pinger.Ping()
++			if db, _ := db.DB(); db != nil {
++				_ = db.Close()
++			}
+ 		}
+ 	}
+ 
+
+From 3520e21fcec58485def197985bf76896fbf574c2 Mon Sep 17 00:00:00 2001
+From: lxs <liang09255@gmail.com>
+Date: Wed, 14 Jan 2026 11:18:55 +0800
+Subject: [PATCH 2/2] fix: avoid coroutine leaks when ping fail
+
+---
+ gorm.go | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/gorm.go b/gorm.go
+index 54d4ec4f3a..03b60dab65 100644
+--- a/gorm.go
++++ b/gorm.go
+@@ -236,8 +236,10 @@ func Open(dialector Dialector, opts ...Option) (db *DB, err error) {
+ 	if err == nil && !config.DisableAutomaticPing {
+ 		if pinger, ok := db.ConnPool.(interface{ Ping() error }); ok {
+ 			err = pinger.Ping()
+-			if db, _ := db.DB(); db != nil {
+-				_ = db.Close()
++			if err != nil {
++				if db, _ := db.DB(); db != nil {
++					_ = db.Close()
++				}
+ 			}
+ 		}
+ 	}

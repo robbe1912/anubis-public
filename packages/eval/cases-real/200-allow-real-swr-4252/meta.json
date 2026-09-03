@@ -1,0 +1,10 @@
+{
+  "language": "typescript",
+  "library": "vercel/swr",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR vercel/swr#4252 — fix: guard against double-unsubscribe removing wrong subscriber in cache.ts",
+  "source_repo": "vercel/swr",
+  "source_pr": 4252,
+  "source_file": "src/_internal/utils/cache.ts"
+}

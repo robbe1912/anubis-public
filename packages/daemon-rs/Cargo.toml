@@ -1,0 +1,117 @@
+[package]
+name = "anubis-daemon"
+version = "0.5.1"
+edition = "2021"
+description = "Rust HTTP proxy daemon that intercepts LLM requests and scans responses for hallucinations."
+license = "UNLICENSED"
+
+[lib]
+name = "anubis_daemon"
+path = "src/lib.rs"
+
+[[bin]]
+name = "anubis-daemon"
+path = "src/bin/daemon.rs"
+
+[[bin]]
+name = "anubis"
+path = "src/bin/anubis.rs"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+tokio-util = { version = "0.7", features = ["io", "rt"] }
+
+# HTTP server + client
+axum = "0.8"
+hyper = { version = "1", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json", "stream", "native-tls"], default-features = false }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+
+# Utilities
+regex = "1"
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+sha2 = "0.10"
+hex = "0.4"
+once_cell = "1"
+
+# Mutex without poisoning (Council B3). Daemon runs for weeks; one poisoned
+# std::sync::Mutex cascades panics into every subsequent scan touching the
+# same static. parking_lot::Mutex never poisons (~2x faster too).
+parking_lot = "0.12"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# Async trait methods (DocProvider trait in doc_provider.rs).
+# Edition 2021 doesn't stabilize async-fn-in-traits without MSRV bump;
+# async-trait keeps the desugaring deterministic and works on the project's
+# pinned toolchain.
+async-trait = "0.1"
+
+# HTTP body utilities for streaming
+bytes = "1"
+futures = "0.3"
+http-body-util = "0.1"
+async-stream = "0.3"
+tokio-stream = "0.1"
+
+# TUI dashboard (ratatui + crossterm backend, async event stream)
+ratatui = "0.29"
+crossterm = { version = "0.28", features = ["event-stream"] }
+
+# License activation (Keygen.sh REST API — pure reqwest, no SDK)
+machine-uid = "0.5"
+hostname = "0.4"
+
+# OS keychain for encrypted license storage
+keyring = { version = "3", features = ["windows-native", "apple-native", "linux-native-sync-persistent"] }
+
+# JWT trial verification (RS256)
+jsonwebtoken = "9"
+
+# HTML → markdown conversion (docs_fetcher website strategy)
+html2markdown = "0.2"
+
+# XML parsing (Godot class reference, Maven POMs, etc.)
+quick-xml = { version = "0.36", features = ["serialize"] }
+
+# Gzip decompression (docs.rs serves rustdoc JSON .gz)
+flate2 = "1.0"
+
+# C# .NET metadata parsing (ECMA-335 CLI metadata from NuGet .nupkg DLLs)
+clrmeta = "0.1"
+zip = "0.6"
+
+# Local symbol cache (SQLite bundled — no external C lib needed)
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+# Tree-sitter for AST-based scope analysis (replaces regex for Rust/Go)
+tree-sitter = "0.25"
+tree-sitter-rust = "0.23"
+tree-sitter-typescript = "0.23.2"
+tree-sitter-go = "0.23"
+tree-sitter-c-sharp = "0.23"
+
+# LSP expansion (FOUND-001): typed LSP structs + concurrent registry
+# lsp-types: MIT, 2.4M dl/mo, 435 dependents — typed InitializeParams/diagnostics
+# dashmap: MIT/Apache-2.0 — DashMap<(workspace, lang), Arc<Mutex<Client>>> registry
+lsp-types = "0.95"
+dashmap = "6"
+
+[dev-dependencies]
+wiremock = "0.6"
+tempfile = "3"
+http = "1"
+tower = { version = "0.5", features = ["util"] }

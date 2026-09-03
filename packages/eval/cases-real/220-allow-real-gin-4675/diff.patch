@@ -1,0 +1,27 @@
+From b73528c049d6b11657993f252804990d103214f7 Mon Sep 17 00:00:00 2001
+From: lihainuo <lihainuo0502@gmail.com>
+Date: Thu, 28 May 2026 13:24:51 +0800
+Subject: [PATCH] docs(context): align inline comments in GetPostForm example
+
+Standardize comment alignment in GetPostForm documentation example
+to improve readability and maintain consistency with code formatting
+conventions.
+---
+ context.go | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/context.go b/context.go
+index 5174033eb3..135982dba2 100644
+--- a/context.go
++++ b/context.go
+@@ -619,8 +619,8 @@ func (c *Context) DefaultPostForm(key, defaultValue string) string {
+ // For example, during a PATCH request to update the user's email:
+ //
+ //	    email=mail@example.com  -->  ("mail@example.com", true) := GetPostForm("email") // set email to "mail@example.com"
+-//		   email=                  -->  ("", true) := GetPostForm("email") // set email to ""
+-//	                            -->  ("", false) := GetPostForm("email") // do nothing with email
++//		email=                  -->  ("", true) := GetPostForm("email")                 // set email to ""
++//	                            -->  ("", false) := GetPostForm("email")                // do nothing with email
+ func (c *Context) GetPostForm(key string) (string, bool) {
+ 	if values, ok := c.GetPostFormArray(key); ok {
+ 		return values[0], ok

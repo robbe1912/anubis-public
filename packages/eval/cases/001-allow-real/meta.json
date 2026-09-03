@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "internal",
+  "agent_model": "human",
+  "created_at": "2026-07-11",
+  "notes": "Phase 1 seed: minimal template-literal refactor of an existing function. Allowed by definition."
+}

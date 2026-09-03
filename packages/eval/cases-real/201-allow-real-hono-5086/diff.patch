@@ -1,0 +1,27 @@
+From 79233fdae025a10a89dea7ca4ee0eded36a1a3c9 Mon Sep 17 00:00:00 2001
+From: Yusuke Wada <yusuke@kamawada.com>
+Date: Sun, 5 Jul 2026 08:34:36 +0900
+Subject: [PATCH] docs(context-storage): fix JSDoc
+
+---
+ src/middleware/context-storage/index.ts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/middleware/context-storage/index.ts b/src/middleware/context-storage/index.ts
+index 61dcf7f5e2..e20fcec5cc 100644
+--- a/src/middleware/context-storage/index.ts
++++ b/src/middleware/context-storage/index.ts
+@@ -29,11 +29,11 @@ const asyncLocalStorage = new AsyncLocalStorage<Context>()
+  * app.use(contextStorage())
+  *
+  * app.use(async (c, next) => {
+- *   c.set('message', 'Hono is hot!!)
++ *   c.set('message', 'Hono is hot!!')
+  *   await next()
+  * })
+  *
+- * app.get('/', async (c) => { c.text(getMessage()) })
++ * app.get('/', async (c) => c.text(getMessage()))
+  *
+  * const getMessage = () => {
+  *   return getContext<Env>().var.message

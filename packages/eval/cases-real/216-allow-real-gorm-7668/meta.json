@@ -1,0 +1,10 @@
+{
+  "language": "go",
+  "library": "go-gorm/gorm",
+  "agent_model": "human-merged",
+  "created_at": "2026-07-11",
+  "notes": "Merged PR go-gorm/gorm#7668 — internal/lru: improve concurrency with RWMutex",
+  "source_repo": "go-gorm/gorm",
+  "source_pr": 7668,
+  "source_file": "internal/lru/lru.go"
+}

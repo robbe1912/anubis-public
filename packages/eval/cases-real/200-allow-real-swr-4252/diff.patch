@@ -1,0 +1,39 @@
+From 6c37b79fb48a266034f560e659f467749d9b07b8 Mon Sep 17 00:00:00 2001
+From: Tomohiro Yamada <tomohiro.yamada@TomohironoMacBook-Air.local>
+Date: Mon, 4 May 2026 00:57:28 +0900
+Subject: [PATCH] fix: guard against double-unsubscribe removing wrong
+ subscriber
+
+When the unsubscribe function returned by `subscribe` was called more
+than once, `subs.indexOf(callback)` returned -1, causing
+`subs.splice(-1, 1)` to silently remove the last subscriber in the
+array instead of doing nothing.
+
+Fix by checking `index >= 0` before mutating the array, using the same
+O(1) swap-and-pop pattern already used in `subscribe-key.ts`.
+
+Signed-off-by: tomohiro86 <supersonic.dps@gmail.com>
+---
+ src/_internal/utils/cache.ts | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/_internal/utils/cache.ts b/src/_internal/utils/cache.ts
+index 13894b6eb..c44e65f37 100644
+--- a/src/_internal/utils/cache.ts
++++ b/src/_internal/utils/cache.ts
+@@ -56,7 +56,14 @@ export const initCache = <Data = any>(
+       subscriptions[key] = subs
+ 
+       subs.push(callback)
+-      return () => subs.splice(subs.indexOf(callback), 1)
++      return () => {
++        const index = subs.indexOf(callback)
++        if (index >= 0) {
++          // O(1): swap with the last element and pop
++          subs[index] = subs[subs.length - 1]
++          subs.pop()
++        }
++      }
+     }
+     const setter = (key: string, value: any, prev: any) => {
+       provider.set(key, value)

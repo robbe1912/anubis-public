@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "library": "node-fetch",
+  "agent_model": "human-curated",
+  "created_at": "2026-07-11",
+  "notes": "fetch() with response handling"
+}

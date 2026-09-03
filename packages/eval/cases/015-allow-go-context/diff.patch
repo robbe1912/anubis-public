@@ -1,0 +1,21 @@
+--- a/main.go
++++ b/main.go
+@@ -1,5 +1,13 @@
+-package main
+-import "time"
+-func work() {
+-    time.Sleep(1 * time.Second)
+-}
++package main
++import (
++    "context"
++    "time"
++)
++func work(ctx context.Context) error {
++    select {
++    case <-time.After(1 * time.Second):
++        return nil
++    case <-ctx.Done():
++        return ctx.Err()
++    }
++}

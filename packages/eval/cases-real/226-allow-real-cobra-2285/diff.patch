@@ -1,0 +1,59 @@
+From 69ce1366cbe6af68a6541a2cdaf23e94360efc04 Mon Sep 17 00:00:00 2001
+From: Niklas Vogel <github@n9v9.de>
+Date: Wed, 11 Jun 2025 16:17:30 +0200
+Subject: [PATCH 1/2] fix: quote args in fish shell completion
+
+The arguments used for dynamic completions in fish were missing quotes.
+This resulted in an error when one of the arguments had a `*` in it
+whose expansion matched no file. Once the completion got triggered, fish
+errored with the message `No matches for wildcard [...]`. Don't quote
+the first argument as that is the name of the binary.
+---
+ fish_completions.go | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/fish_completions.go b/fish_completions.go
+index 12d61b691..605b2dcdb 100644
+--- a/fish_completions.go
++++ b/fish_completions.go
+@@ -46,14 +46,14 @@ function __%[1]s_perform_completion
+ 
+     # Extract all args except the last one
+     set -l args (commandline -opc)
+-    # Extract the last arg and escape it in case it is a space
++    # Extract the last arg and escape it in case it is a space or wildcard
+     set -l lastArg (string escape -- (commandline -ct))
+ 
+     __%[1]s_debug "args: $args"
+     __%[1]s_debug "last arg: $lastArg"
+ 
+     # Disable ActiveHelp which is not supported for fish shell
+-    set -l requestComp "%[10]s=0 $args[1] %[3]s $args[2..-1] $lastArg"
++    set -l requestComp "%[10]s=0 $args[1] %[3]s $(string join ' ' (string escape $args[2..-1])) $lastArg"
+ 
+     __%[1]s_debug "Calling $requestComp"
+     set -l results (eval $requestComp 2> /dev/null)
+
+From 917f0fccce321a32182af8209ae672946c14db8b Mon Sep 17 00:00:00 2001
+From: Marc Khouzam <marc.khouzam@gmail.com>
+Date: Tue, 9 Dec 2025 20:49:30 -0500
+Subject: [PATCH 2/2] Protect against arguments that start with --
+
+Signed-off-by: Marc Khouzam <marc.khouzam@gmail.com>
+---
+ fish_completions.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/fish_completions.go b/fish_completions.go
+index 605b2dcdb..6bcb3dd5b 100644
+--- a/fish_completions.go
++++ b/fish_completions.go
+@@ -53,7 +53,7 @@ function __%[1]s_perform_completion
+     __%[1]s_debug "last arg: $lastArg"
+ 
+     # Disable ActiveHelp which is not supported for fish shell
+-    set -l requestComp "%[10]s=0 $args[1] %[3]s $(string join ' ' (string escape $args[2..-1])) $lastArg"
++    set -l requestComp "%[10]s=0 $args[1] %[3]s $(string join ' ' -- (string escape -- $args[2..-1])) $lastArg"
+ 
+     __%[1]s_debug "Calling $requestComp"
+     set -l results (eval $requestComp 2> /dev/null)
